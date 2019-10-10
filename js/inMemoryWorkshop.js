@@ -45,11 +45,17 @@ function updateWorkshop(oldname, newname, newdescription) {
             reject(new Error("Old name required to update"));
         }
         const index = inMemoryWorkshop.map(function(x) {return x.name;}).indexOf(oldname);
-        if (newname.length > 0) {
-            inMemoryWorkshop.splice(index, 1, {name:newname, description:inMemoryWorkshop[index].description});
+        if (index > -1) {
+            if (newname.length > 0) {
+                inMemoryWorkshop.splice(index, 1, { name: newname, description: inMemoryWorkshop[index].description });
+            }
+            if (newdescription.length > 0) {
+                inMemoryWorkshop.splice(index, 1, { name: inMemoryWorkshop[index].name, description: newdescription });
+            }
         }
-        if (newdescription.length > 0) {
-            inMemoryWorkshop.splice(index, 1, {name:inMemoryWorkshop[index].name, description:newdescription});
+        else
+        {
+            reject(new Error("Workshop not found"));
         }
         console.log(inMemoryWorkshop);
         resolve();
