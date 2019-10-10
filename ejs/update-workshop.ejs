@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./head %>
+</head>
+<body class="container">
+
+<form action="/update-workshop" method="post">
+    <div class="form-group">
+        <label for="oldname">Old Name</label>
+        <input type="text" name="oldname" class="form-control" id="oldname"  placeholder="Old Name" required>
+    </div>
+    <div class="form-group">
+        <label for="newname">New Name</label>
+        <input type="text" name="newname" class="form-control" id="newname" placeholder="New Name">
+    </div>
+    <div class="form-group">
+        <label for="newdescription">New Description</label>
+        <input type="text" name="newdescription" class="form-control" id="newdescription" placeholder="New Description">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a type="button" class="btn btn-secondary" href="/">Cancel</a>
+</form>
+
+<footer>
+    <% include ./footer %>
+</footer>
+
+</body>
+</html>

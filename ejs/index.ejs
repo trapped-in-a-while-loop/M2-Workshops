@@ -12,12 +12,17 @@
 </div>
 
 <a type="button" href="/workshop" class="btn btn-success btn-lg">Create new workshop</a>
+<% if (workshops.length > 0) { %>
+    <a type="button" href="/update-workshop" class="btn btn-primary btn-lg">Update a workshop</a>
+<% } %>
 
 <ul class="list-unstyled"></ul>
 <% workshops.forEach(function(workshop) { %>
     <li class="media my-4">
         <div class="media-body">
-            <h5 class="mt-0 mb-1"><%= workshop.name %></h5>
+            <h5 class="mt-0 mb-1"><%= workshop.name %>
+            <a type="button" href="/remove-workshop" class="btn btn-danger btn-lg">Remove</a>
+            </h5>
             <%= workshop.description %>        </div>        
     </li>
 <% }); %>
